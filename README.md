@@ -1,6 +1,6 @@
-# 🔬 Pattern Hunters: Enzyme Kinetics
+# 🔬 Pattern Hunters: Enzyme Kinetics Series
 
-### How the Michaelis-Menten Equation Emerges from Nature
+### Two notebooks — from first principles to inhibition diagnosis
 
 > *"Mathematics does not describe nature from the outside.  
 > It is forced out of nature by the act of careful questioning."*
@@ -9,13 +9,15 @@
 
 ## What this is
 
-A self-guided Google Colab notebook for BSc and MSc Biochemistry students that teaches enzyme kinetics the way it should be taught — starting from raw observation, not from equations.
+Two self-guided Google Colab notebooks for BSc and MSc Biochemistry students, structured as a series. Each notebook is independent but they build on each other naturally.
 
-Most textbooks show one figure: the hyperbolic v vs [S] curve. They present it as if it came from a single experiment, as if the equation was handed down from above, as if Km and Vmax are abstract constants rather than portraits of molecular behaviour.
+**Notebook 1** teaches enzyme kinetics starting from raw observation — not equations. The Michaelis-Menten equation is the last thing students arrive at, not the first. By the time they see it, they have already understood why it must have the shape it has, why no other equation would fit, and what the parameters mean in a living enzyme working in a real soil.
 
-**This notebook does the opposite.**
+**Notebook 2** teaches enzyme inhibition as a detective story — starting from anomalous data and reasoning toward a molecular diagnosis. Four inhibition types are treated not as categories to memorise but as four distinct physical situations, each with a different molecular story, a different experimental signature, and a different consequence for soil biomarker interpretation.
 
-The Michaelis-Menten equation is the *last* thing students arrive at — not the first. By the time they see it, they have already understood why it must have the shape it has, why no other equation would fit, and what the parameters mean in a living enzyme working in a real soil.
+Both notebooks are explicitly scaffolded for two levels: BSc students engage with the observation and physical reasoning layers; MSc students additionally work through full algebraic derivations, quantitative Ki extraction, and the Dixon plot.
+
+Most textbooks show one figure and hand down the equation. **These notebooks do the opposite.**
 
 ---
 
@@ -33,13 +35,22 @@ Showing only the hyperbolic v vs [S] curve without these three things produces s
 
 ## Open in Google Colab
 
+### Notebook 1 — How the MM Equation Emerges from Nature
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/The-Pattern-Hunter/Biochemistry/blob/main/notebook/enzyme_kinetics_pattern_hunters.ipynb)
 
-> No installation needed. Runs entirely in a browser — including on mobile.
+### Notebook 2 — Enzyme Inhibition: A Detective Notebook
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/The-Pattern-Hunter/Biochemistry/blob/main/notebook/enzyme_inhibition_pattern_hunters.ipynb)
+
+> No installation needed. Both notebooks run entirely in a browser — including on mobile.  
+> Notebook 1 should be completed before Notebook 2, but each can also be used independently.
 
 ---
 
 ## Contents
+
+### Notebook 1 — How the MM Equation Emerges from Nature
 
 | Section | What students do | What emerges |
 |---------|-----------------|--------------|
@@ -55,6 +66,24 @@ Showing only the hyperbolic v vs [S] curve without these three things produces s
 | **9 — The complete picture** | All four curve families with their progress curves | What the textbook's one figure hides |
 | **10 — Western Odisha connection** | Soil enzyme kinetics along a contamination gradient | The equation as a field diagnostic tool |
 | **Summary** | Table of the full journey | The hunt is complete |
+
+### Notebook 2 — Enzyme Inhibition: A Detective Notebook
+
+| Section | What students do | What emerges |
+|---------|-----------------|--------------|
+| **Setup** | Load kinetic functions for all four inhibition types | Ready to diagnose |
+| **1 — Something is wrong** | Observe anomalously low rate; generate hypotheses | The concept of an inhibitor as a separate molecular actor |
+| **2 — Where does it bind?** | Draw three binding locations; predict consequences | Four physical situations, not four named categories |
+| **3 — Competitive** *(BSc + MSc)* | 6-panel cell: LB lines, Ki extraction, Cheng-Prusoff | Km rises, Vmax unchanged — substrate can win |
+| **4 — Non-competitive** *(BSc + MSc)* | 6-panel cell: Dixon plot, y-intercept vs [I], IC₅₀ shift | Vmax falls, Km unchanged — substrate cannot help |
+| **5 — Uncompetitive** | The paradox: more substrate makes it worse | Both Km and Vmax fall — parallel LB lines |
+| **6 — Mixed inhibition** | The general case containing all others | LB intersection in 2nd quadrant; diagnostic table |
+| **7 — LB as detective tool** *(BSc + MSc)* | Identify unknown type; extract Ki from noisy real data | From pattern recognition to quantitative diagnosis |
+| **8 — Reversible vs irreversible** | Preincubation time test; EDTA rescue protocol | Heavy metals — temporary stress vs permanent damage |
+| **9 — IC₅₀ and dose-response** | Cheng-Prusoff equation; potency ranking of heavy metals | Inhibitor potency as an ecotoxicological index |
+| **10 — Western Odisha** | Full kinetic fingerprint across contamination gradient | Inhibition type as a contamination fingerprint |
+| **11 — Your own experiment** | Choose type, set Ki, predict LB pattern before running | Full diagnostic workflow from anomaly to identification |
+| **Summary** | Master decision tree: observe → test → diagnose | The complete inhibition detective toolkit |
 
 ---
 
@@ -128,10 +157,10 @@ This notebook was developed alongside the OSHEC-funded project *"Genomic Respons
 
 ## Who this is for
 
-- **BSc students** encountering enzyme kinetics for the first time — use Sections 1–7
-- **MSc students** deepening their understanding — use all sections including Section 8 (design your own experiment)
-- **PhD scholars** working on enzyme-based biomonitoring — replace Section 10 data with field measurements
-- **Teachers** at regional colleges with limited laboratory access — every concept here can be taught with only this notebook and a discussion; no spectrophotometer required
+- **BSc students** — both notebooks are explicitly scaffolded for undergraduate level. Each code section is labelled *BSc: observe panels A, B, C*. No prior programming experience needed.
+- **MSc students** — the same cells contain deeper layers labelled *MSc extension*: full algebraic derivations, Ki extraction from LB slope and y-intercept plots, Dixon plots, and Cheng-Prusoff verification.
+- **PhD scholars** working on enzyme-based biomonitoring — the Western Odisha sections in both notebooks use placeholder data that can be replaced directly with field measurements from OSHEC project sites.
+- **Teachers** at regional colleges with limited laboratory access — every concept in both notebooks can be taught with only the notebook and a discussion. No spectrophotometer, no reagents, no laboratory required.
 
 ---
 
@@ -157,6 +186,7 @@ For local use:
 ```bash
 pip install numpy matplotlib scipy
 jupyter notebook enzyme_kinetics_pattern_hunters.ipynb
+jupyter notebook enzyme_inhibition_pattern_hunters.ipynb
 ```
 
 ---
@@ -167,18 +197,36 @@ jupyter notebook enzyme_kinetics_pattern_hunters.ipynb
 The-Pattern-Hunter/Biochemistry/
 │
 ├── notebook/
-│   └── enzyme_kinetics_pattern_hunters.ipynb   # Main notebook
-├── README.md                                    # This file
-└── figures/                                     # Saved figures (auto-generated by notebook)
-    ├── section1_progress_curve.png
-    ├── section2_five_confounds.png
-    ├── section3_flask_architecture.png
-    ├── section4_data_demands_shape.png
-    ├── section5_mechanism.png
-    ├── section6_derivation.png
-    ├── section7_biological_meaning.png
-    ├── section9_complete_picture.png
-    └── section10_biomarker.png
+│   ├── enzyme_kinetics_pattern_hunters.ipynb      # Notebook 1 — MM equation
+│   └── enzyme_inhibition_pattern_hunters.ipynb    # Notebook 2 — Inhibition
+│
+├── README.md                                      # This file
+│
+└── figures/                                       # Auto-generated by notebooks
+    │
+    ├── notebook1/
+    │   ├── section1_progress_curve.png
+    │   ├── section2_five_confounds.png
+    │   ├── section3_flask_architecture.png
+    │   ├── section4_data_demands_shape.png
+    │   ├── section5_mechanism.png
+    │   ├── section6_derivation.png
+    │   ├── section7_biological_meaning.png
+    │   ├── section9_complete_picture.png
+    │   └── section10_biomarker.png
+    │
+    └── notebook2/
+        ├── inh_s1_anomaly.png
+        ├── inh_s2_binding_sites.png
+        ├── inh_s3_competitive_deep.png
+        ├── inh_s4_noncompetitive_deep.png
+        ├── inh_s5_uncompetitive.png
+        ├── inh_s6_mixed.png
+        ├── inh_s7_bsc_task.png
+        ├── inh_s7b_msc_reveal.png
+        ├── inh_s8_reversible.png
+        ├── inh_s9_ic50.png
+        └── inh_s10_western_odisha.png
 ```
 
 ---
@@ -192,10 +240,12 @@ If you adapt this notebook for your own teaching, a note in your materials point
 
 ## Citation
 
-If you use this notebook in teaching or research:
+If you use these notebooks in teaching or research:
 
 ```
-Patel, A. (2026). Pattern Hunters: How the Michaelis-Menten Equation Emerges from Nature.
+Patel, A. (2026). Pattern Hunters: Enzyme Kinetics Series.
+Notebook 1: How the Michaelis-Menten Equation Emerges from Nature.
+Notebook 2: Enzyme Inhibition — A Detective Notebook.
 Kuchinda Degree College, Department of Zoology, Sambalpur University.
 GitHub: https://github.com/The-Pattern-Hunter/Biochemistry
 ```
